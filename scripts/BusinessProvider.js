@@ -1,3 +1,4 @@
+
 const businesses = [
     {
       purchasingAgent: { nameLast: "Kirlin", nameFirst: "Kristy" },
@@ -115,3 +116,18 @@ const businesses = [
 export const useBusinesses = () => {
   return businesses.slice();
 }
+
+// Create a new array that holds New York businesses
+const newYorkBusinesses = businesses.filter(businessObject => {
+    if (businessObject.addressStateCode === "NY") {
+        return true
+    }
+    return false
+  })  
+
+
+export const useNewYorkBusinesses = () => {
+  return newYorkBusinesses
+}
+
+console.log(useNewYorkBusinesses);

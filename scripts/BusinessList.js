@@ -1,4 +1,4 @@
-import { useBusinesses } from "./BusinessProvider.js"
+import { useBusinesses, useNewYorkBusinesses } from "./BusinessProvider.js"
 import { Business } from "./Business.js"
 
 // making a simple name for the place where we want the 
@@ -13,6 +13,21 @@ export const BusinessList = () => {
     businessArray.forEach(
         (businessObject) => {
             contentTarget.innerHTML += Business(businessObject)
+        }
+    );
+
+}
+
+const newYorkTarget = document.querySelector(".businessList--newYork")
+
+export const newYorkBusinessList = () => {
+    // for this array below, use data from the BusinessProvider
+    const newYorkBusinessArray = useNewYorkBusinesses()
+    newYorkTarget.innerHTML = "<h1>New York Businesses</h1>"
+
+    newYorkBusinessArray.forEach(
+        (businessObject) => {
+            newYorkTarget.innerHTML += Business(businessObject)
         }
     );
 
