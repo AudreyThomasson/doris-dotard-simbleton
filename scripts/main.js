@@ -1,7 +1,7 @@
-import { useBusinesses } from "./BusinessProvider";
+import { useBusinesses } from "./BusinessProvider.js";
 import { BusinessList} from './BusinessList.js';
-import { Business } from "./Business.js";
+// import { Business } from "./Business.js";
 
 
 BusinessList();
-useBusinesses();
+// useBusinesses();

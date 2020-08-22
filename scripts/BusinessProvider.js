@@ -109,9 +109,9 @@ const businesses = [
       addressFullStreet: "7157 Hudson Street Ford",
       addressCity: "Watrous"
     }
-  ]
+]
 
-
-  export const useBusinesses = () => {
-    return businesses.slice()
+// making a copy of the array of businesses so it can be exported
+export const useBusinesses = () => {
+  return businesses.slice();
 }

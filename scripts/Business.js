@@ -4,7 +4,7 @@ export const Business = (businessObject) => {
             <h2 class="business__name">${businessObject.companyName}</h2>
             <p>${businessObject.addressFullStreet}</p>
             <p>${businessObject.addressCity}, ${businessObject.addressStateCode} ${businessObject.addressZipCode}</p>
-            <br>
+            <hr>
         </section>
     `
 }
