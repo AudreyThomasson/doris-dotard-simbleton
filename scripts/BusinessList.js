@@ -32,3 +32,47 @@ export const newYorkBusinessList = () => {
     );
 
 }
+
+// --------------------code for search below here---------------------
+
+// Place an article element in your HTML with the class below
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+
+
+const foundBusinessArray = useBusinesses()
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+
+            if (businessObject.companyName.includes(keyPressEvent.target.value)) {
+            /*
+                When user presses enter, find the matching business.
+                You can use the `.includes()` method strings to
+                see if a smaller string is part of a larger string.
+
+                Example:
+                    business.companyName.includes(keyPressEvent.target.value)
+            */
+
+                const foundBusiness = businessObj.find(business => {
+            return businessObj
+            })
+
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        }
+    }});
