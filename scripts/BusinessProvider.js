@@ -124,10 +124,17 @@ const newYorkBusinesses = businesses.filter(businessObject => {
     }
     return false
   })  
-
-
 export const useNewYorkBusinesses = () => {
   return newYorkBusinesses
 }
 
-console.log(useNewYorkBusinesses);
+// Create a new array that holds listing agents
+const agents = businesses.map(businessObject => ({
+    fullName: [businessObject.purchasingAgent.nameFirst, businessObject.purchasingAgent.nameLast].join(" "),
+    company: businessObject.companyName,
+    phoneNumber: businessObject.phoneWork
+}));
+
+export const useAgents = () => {
+  return agents
+}
