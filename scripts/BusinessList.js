@@ -32,3 +32,40 @@ export const newYorkBusinessList = () => {
     );
 
 }
+
+// --------------------code for search below here---------------------
+
+// Place an article element in your HTML with the class below
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+
+const foundBusinessArray = useBusinesses()
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        
+        if (keyPressEvent.charCode === 13) {
+            // go through array and find the first business filter 
+                const foundBusiness = foundBusinessArray.find(businessObj => {
+                    // look at the business name and see if it includes any portion of business from search
+                    const business = businessObj.companyName.includes(keyPressEvent.target.value)
+            return business
+            })
+
+
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        }
+    });
