@@ -39,26 +39,19 @@ export const newYorkBusinessList = () => {
 const companySearchResultArticle = document.querySelector(".foundCompanies")
 
 
-
 const foundBusinessArray = useBusinesses()
 document
     .querySelector("#companySearch")
     .addEventListener("keypress", keyPressEvent => {
+        
         if (keyPressEvent.charCode === 13) {
-
-            if (businessObject.companyName.includes(keyPressEvent.target.value)) {
-            /*
-                When user presses enter, find the matching business.
-                You can use the `.includes()` method strings to
-                see if a smaller string is part of a larger string.
-
-                Example:
-                    business.companyName.includes(keyPressEvent.target.value)
-            */
-
-                const foundBusiness = businessObj.find(business => {
-            return businessObj
+            // go through array and find the first business filter 
+                const foundBusiness = foundBusinessArray.find(businessObj => {
+                    // look at the business name and see if it includes any portion of business from search
+                    const business = businessObj.companyName.includes(keyPressEvent.target.value)
+            return business
             })
+
 
             companySearchResultArticle.innerHTML = `
                 <h2>
@@ -75,4 +68,4 @@ document
                 </section>
             `;
         }
-    }});
+    });
